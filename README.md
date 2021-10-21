@@ -1,4 +1,4 @@
-# Minecraft Server Scripts
+# Minecraft Server Auto Starter for Linux
 
 ## How to start the Minecraft server
 1. Copy they files into the existing minecraft server folder
