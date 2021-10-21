@@ -6,7 +6,7 @@
 3. Run `chmod +x start.sh stop.sh run.sh` to make the scripts executable
 4. Run `crontab -e` in the terminal and select an editor of your choicel
 5. Add `* * * * * cd /your_mc_server_path && bash ./start.sh` with your server path and save the file
-6. The server will start automaticly every full minute if its not running
+6. The server will start automaticly every full minute if it is not already running
 
 ## How to stop the Minecraft server
 1. Run `crontab -e` in the terminal and select an editor of your choicel
