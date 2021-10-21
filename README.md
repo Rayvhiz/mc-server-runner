@@ -1,6 +1,6 @@
 # Minecraft Server Scripts
 
-## How to get the Minecraft forge server automaticly running on a Linux server
+## How to start the Minecraft server
 1. Copy they files into the existing minecraft server folder
 2. Edit ***user_jvm_args.txt*** if you want to add java arguments for the minecraft server
 3. Run `chmod +x start.sh stop.sh run.sh` to make the scripts executable
