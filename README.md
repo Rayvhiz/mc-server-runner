@@ -10,5 +10,5 @@
 
 ## How to stop the Minecraft server
 1. Run `crontab -e` in the terminal and select an editor of your choicel
-2. Selete the line `* * * * * bash /home/minecraft/yourserverfolder/start.sh` which you created
+2. Delete the line `* * * * * bash /home/minecraft/yourserverfolder/start.sh` which you created
 3. Run the stop.sh script in the minecraft server folder
