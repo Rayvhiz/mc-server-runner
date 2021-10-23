@@ -4,8 +4,10 @@
 The scripts start a Minecraft Forge server and restart the server, if it crashes.
 
 ## Prerequisite
-1. A working Minecraft Forge server on a Linux system
-2. Screen
+1. A Minecraft Forge server
+2. Java 
+    - Run `sudo apt install default-jre-headless` to install Java
+3. Screen
     - Run `sudo apt update && apt-get install screen` to install Screen
     - Run `screen --version` to check if Screen installed succesfully
 
