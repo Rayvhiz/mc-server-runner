@@ -17,3 +17,7 @@ The scripts start a Minecraft Forge server and restart the server, if it crashes
 
 ## How to stop the Minecraft server
 1. Run `./stop.sh` in the ***server-runner*** directory to stop the Minecraft server directory
+
+## How to start the Minecraft server automatically on server boot
+1. Run `crontab -e` to edit your cronjobs
+2. Add `@reboot cd /<mc-server-path>/server-runner && ./start.sh` and edit the path to the Minecraft server directory
