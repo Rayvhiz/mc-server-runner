@@ -1,4 +1,4 @@
-# Minecraft Forge Auto Runner for Linux Server
+# Minecraft Forge Server Runner for Linux Server
 
 ## Description
 The scripts start a Minecraft Forge server and restart the server, if it crashes.
