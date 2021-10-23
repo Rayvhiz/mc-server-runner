@@ -3,8 +3,7 @@
 # M means Megabyte, G means Gigabyte.
 # For example, to set the maximum to 3GB: -Xmx3G
 # To set the minimum to 2.5GB: -Xms2500M
-
 # A good default for a modded server is 4GB.
-
+# JVM arguments:
 -Xmx4G
--Xms1G
+-Xms4G
