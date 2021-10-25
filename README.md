@@ -1,7 +1,7 @@
 # Minecraft Forge Server Runner for Linux Server
 
 ## Description
-The scripts start a Minecraft Forge server and restart the server, if it crashes.
+The scripts start a Minecraft Forge server and restart the server, if it crashes. This scripts were made to make my friends life easier.
 
 ## Prerequisite
 1. A Minecraft Forge server
@@ -23,3 +23,4 @@ The scripts start a Minecraft Forge server and restart the server, if it crashes
 ## How to start the Minecraft server automatically on startup of the Linux server
 1. Run `crontab -e` to edit cronjobs
 2. Add `@reboot cd /<mc-server-path>/server-runner && ./start.sh` and edit the path to the Minecraft server directory
+3. Add `* 3 * * * screen -S <mc-server-folder-name> -X stuff "stop^M"`  and edit the folder name of the Minecraft server, to auto restart the server at 3am
