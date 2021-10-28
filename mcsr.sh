@@ -4,22 +4,6 @@ shift
 path="$PWD"
 dir="$(basename "$path")"
 
-wait_server_stop () {
-    time=0
-    echo "Waiting for server to stop... $time seconds"
-    while screen -list | grep -q "$dir"; do
-        # Display info for user
-        echo -e "\e[1A\e[KWaiting for server to stop... $time seconds"
-        ((time=time+1))
-
-        # Force shutdown the Minecraft server if it takes too long
-        if [ "$time" -eq 300 ]; then
-            screen -S $dir -X quit
-        fi
-        sleep 1
-    done
-}
-
 case $option in
     start)
         # Check if Minecraft server is already running
@@ -42,12 +26,19 @@ case $option in
             screen -S $dir -X stuff "stop^M"
 
             # Wait until server stopped
-            wait_server_stop
+            time=0
+            echo "Waiting for server to stop... $time seconds"
+            while screen -list | grep -q "$dir"; do
+                # Display info for user
+                echo -e "\e[1A\e[KWaiting for server to stop... $time seconds"
+                ((time=time+1))
 
-            # Close server restarter
-            screen -S server-restart -X quit
-
-            # screen -S server-restart -X quit
+                # Force shutdown the Minecraft server if it takes too long
+                if [ "$time" -eq 300 ]; then
+                    screen -S $dir -X quit
+                fi
+                sleep 1
+            done
             echo "Minecraft server '$dir' stopped."
         else
             # Notify that server was not running
@@ -56,32 +47,16 @@ case $option in
     ;;
 
     run)
-        file="$1"
-        shift
-        jvm_args="$(grep ^[^#] ./jvm_args.txt |tr '\n' ' ')"
+        if [ "$#" -gt 0 ]; then
+            file="$1"
+            shift
+            jvm_args="$(grep ^[^#] ./jvm_args.txt |tr '\n' ' ')"
 
-        # Run server file
-        java $jvm_args -jar $file "$@"
-
-        # Restart server if closed or crashed
-        screen -AmdS server-restart bash -c "cd $path/; ./mcsr.sh restart"
-    ;;
-
-    restart)
-        # Stop server if it's still running
-        if screen -list | grep -q "$dir"; then
-            # Stop Minecraft server
-            screen -S $dir -X stuff "stop^M"
-
-            # Wait until server stopped
-            wait_server_stop
+            # Run server file
+            java $jvm_args -jar $file "$@"
         else
-            # Wait if user wants to stop the server
-            sleep 5
+            echo "Argument missing. Run the script with './mcsr.sh start'"
         fi
-
-        # Run server start
-        ./mcsr.sh start
     ;;
 
     *)
