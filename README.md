@@ -6,7 +6,6 @@ The script starts, stops and restarts a Minecraft Forge server, if it crashes. T
 ## Prerequisite
 1. A Minecraft Forge server
 2. Java
-    - Run `sudo apt install default-jre-headless` to install Java
 3. Screen
     - Run `sudo apt update && apt-get install screen` to install Screen
     - Run `screen --version` to check if Screen installed succesfully
