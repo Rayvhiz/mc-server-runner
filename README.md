@@ -16,7 +16,7 @@ The script starts, stops and restarts a Minecraft Forge server, if it crashes. T
 3. Edit ***jvm_args.txt***, if you want to add java arguments for the Minecraft server
 4. Run `crontab -e` to edit cronjobs
 5. Add `* * * * * bash -c "cd /<mc-server-path>/; ./mcsr.sh start"` and edit the path to the Minecraft server directory, to let the server start on every full minute, if it's not running
-6. Add `* 3 * * * bash -c "cd /<mc-server-path>/; ./mcsr.sh stop"`  and edit the path to the Minecraft server directory, to stop the server at 3am and let the restart happen
+6. Add `0 3 * * * bash -c "cd /<mc-server-path>/; ./mcsr.sh stop"`  and edit the path to the Minecraft server directory, to stop the server at 3am and let the restart happen
 
 ## How to stop the Minecraft server
 1. Run `crontab -e` to edit cronjobs
