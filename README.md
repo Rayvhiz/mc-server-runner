@@ -1,11 +1,11 @@
-# Minecraft Server Runner for Forge servers on Linux
+# Minecraft Server Runner for Linux
 
 ## Description
-The script starts, stops and restarts a Minecraft Forge server, if it crashes. This script was made to make my friends life easier.
+The script starts, stops and restarts a Minecraft server, if it crashes. This script was made to make my friends life easier.
 
 ## Prerequisite
-1. A Minecraft Forge server
-2. Java
+1. A Minecraft Forge, Fabric or Spigot server
+2. Java 8 for Minecraft v1.16.5 and lower OR Java 16 for Minecraft v1.17.0 and higher
 3. Screen
     - Run `sudo apt update && apt-get install screen` to install Screen
     - Run `screen --version` to check if Screen installed succesfully
