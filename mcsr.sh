@@ -4,6 +4,9 @@ shift
 path="$PWD"
 dir="$(basename "$path")"
 
+# Set forge, fabric, spigot, paper or other server type here 
+type="forge"
+
 case $option in
     start)
         # Check if Minecraft server is already running
@@ -11,7 +14,7 @@ case $option in
                 echo "Minecraft server '$dir' is already running."
         else
                 # Get forge server jar file
-                file="$(find "$path" -maxdepth 1  -type f -name 'forge-*.jar' | sed 's|^./||')"
+                file="$(find "$path" -maxdepth 1  -type f -name "$type*.jar" | sed 's|^./||')"
 
                 # Start Minecraft server in a detached screen and pass arguments
                 screen -AmdS $dir bash -c "cd $path/; ./mcsr.sh run $file nogui"
