@@ -7,6 +7,10 @@ dir="$(basename "$path")"
 # Set forge, fabric, spigot, paper or other server type here 
 type="forge"
 
+# If Forge is used and Minecraft version is 1.17.0 or higher, set true and set forge file lie in the example below.
+new_forge_=false
+forge_file="@libraries/net/minecraftforge/forge/1.18.2-40.1.60/unix_args.txt"
+
 case $option in
     start)
         # Check if Minecraft server is already running
@@ -54,9 +58,13 @@ case $option in
             file="$1"
             shift
             jvm_args="$(grep ^[^#] ./jvm_args.txt |tr '\n' ' ')"
-
+            
             # Run server file
-            java $jvm_args -jar $file "$@"
+            if [ "$new_forge" = true ]; then
+                java $jvm_args "$forge_file" "$@"
+            else
+                java $jvm_args -jar $file "$@"
+            fi
         else
             echo "Argument missing. Run the script with './mcsr.sh start'"
         fi
